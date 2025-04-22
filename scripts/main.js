@@ -86,12 +86,20 @@ const tabIdIndexMap = {
     3: 2,
 };
 
+function shuffleData() {
+    const shuffled = [...menuData];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
 function populateMenuItems() {
     const menuItemsContainer = document.getElementsByClassName(
         "menu-items-container"
     );
 
-    const itemsHtml = menuData.reduce(
+    const itemsHtml = shuffleData().reduce(
         (prev, currItem, index) =>
             (prev += `
  <div class="menu-item-container">
@@ -158,6 +166,7 @@ function registerTabListeners() {
                 const itemId = clickedItem?.id;
                 if (itemId) {
                     focusTab(tabIdIndexMap?.[itemId]);
+                    populateMenuItems();
                 }
             }
         });
