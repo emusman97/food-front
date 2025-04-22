@@ -1,6 +1,9 @@
 :root {
     --color-primary: #FEA116;
     --secondary-bg-color: rgba(222, 226, 230, 1);
+    --primary-text-color: rgba(15, 23, 43, 1);
+    --secondary-text-color: rgba(102, 101, 101, 1);
+    font-weight: 400;
     font-family: "Poppins", sans-serif;
 }
 
@@ -53,6 +56,10 @@ u {
 
 .nav_header_logo {
     width: 15rem;
+}
+
+header p {
+    color: #FFFFFF;
 }
 
 nav a {
@@ -175,6 +182,10 @@ nav:last-child {
     height: 100%;
 }
 
+.card p {
+    color: var(--secondary-text-color);
+}
+
 .card:hover {
     background: var(--color-primary);
     color: #FFFFFF;
@@ -210,4 +221,130 @@ nav:last-child {
     align-items: center;
 }
 
-.section_about_us_content_container {}
+.section_about_us_content_container {
+    display: grid;
+    grid-template-columns: 48% 48%;
+}
+
+.about-us-images-container {
+    border: green 1px;
+    display: grid;
+    grid-template-rows: repeat(2, 20em);
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+}
+
+.about-us-image-alternate-contianer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.about-us-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.about-us-alternate-image {
+    height: 80%;
+    width: 80%;
+}
+
+.about-us-image-alternate-3-contianer {
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.about-us-content-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.about-us-content-container p {
+    color: var(--secondary-text-color);
+}
+
+.title-text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title-text {
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--primary-text-color);
+}
+
+.about-us-title {
+    font-family: "Pacifico", sans-serif;
+    color: var(--color-primary) !important;
+}
+
+.separator-line {
+    height: 0.1em;
+    width: 2.5em;
+    background: var(--color-primary);
+    margin: 0 0.5em;
+}
+
+.about-us-main-heading {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.about-us-main-heading h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.about-us-main-heading i {
+    font-size: 3em;
+    margin: 0 0.2em;
+}
+
+.about-us-exp-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+}
+
+.exp-pill {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1em;
+    border-left: 0.5em solid var(--color-primary);
+}
+
+.exp-pill p {
+    color: var(--color-primary);
+    font-size: 4em;
+    margin: 0;
+
+}
+
+.exp-pill-description-container {
+    margin-left: 1em;
+    margin-right: 6em;
+}
+
+.exp-pill-description-container p:first-child {
+    margin: 0;
+    font-size: 1em;
+    color: var(--secondary-text-color);
+}
+
+.exp-pill-description-container p:last-child {
+    margin: 0;
+    font-size: 1em;
+    color: var(--primary-text-color);
+    font-weight: 700;
+}
