@@ -147,7 +147,6 @@ function focusTab(index = 0) {
 
     for (let i = 0; i < tabElements.length; i++) {
         const tabItem = tabElements?.item?.(i);
-        console.log(tabItem);
         tabItem?.classList?.remove(focusedTabClassName);
     }
 
