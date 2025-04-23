@@ -192,6 +192,13 @@ nav:last-child {
     color: #FFFFFF;
 }
 
+.card:hover>i {
+    color: #FFFFFF;
+}
+
+.card:hover>p {
+    color: #FFFFFF;
+}
 
 .section_container .card {
     margin-right: 1em;
