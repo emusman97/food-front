@@ -289,6 +289,13 @@ nav:last-child {
     align-items: center;
 }
 
+.title-text-container p {
+    font-family: var(--pacifico-font-stack);
+    font-size: 1.5em;
+    margin: 0;
+    color: var(--color-primary);
+}
+
 .title-text {
     margin: 0;
     font-size: 1.5em;
@@ -602,4 +609,107 @@ nav:last-child {
     margin: 0;
     grid-column: 1 / 3;
     grid-row: 3 / 6;
+}
+
+#section-chefs {
+    display: flex;
+    background: white;
+    padding: 4em 0 2em 0;
+}
+
+#section-chefs>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.section-heading {
+    font-size: 3em;
+    margin: 0;
+}
+
+.chefs-cards-container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.chef-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chef-card:hover {
+    background: white;
+}
+
+.chef-card img {
+    height: 10em;
+    width: 10em;
+    border-radius: calc(10em / 2);
+}
+
+.chef-card p {
+    margin: 0;
+}
+
+.chef-card-name {
+    margin-top: 1rem !important;
+    font-size: 1.5em !important;
+    color: var(--primary-text-color) !important;
+}
+
+.chef-card-designation {
+    font-size: 1em !important;
+}
+
+.chef-card:hover p {
+    color: var(--secondary-text-color) !important;
+}
+
+.chef-card-socials-container {
+    display: none;
+    margin-top: 1rem;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    gap: 0.5em;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.card:hover .chef-card-socials-container {
+    display: flex;
+    opacity: 1;
+}
+
+.social-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    height: 2em;
+    width: 2em;
+    border-top-left-radius: calc(2em / 2);
+    border-top-right-radius: calc(2em / 2);
+    margin-bottom: -1em;
+}
+
+.social-container a {
+    color: white;
+}
+
+.social-container .fa-solid {
+    display: block;
+    color: white;
+    font-size: 1em;
+    height: 10em;
+    width: 10em;
 }
