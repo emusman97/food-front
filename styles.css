@@ -662,6 +662,7 @@ nav:last-child {
 .chef-card-name {
     margin-top: 1rem !important;
     font-size: 1.5em !important;
+    font-weight: 700 !important;
     color: var(--primary-text-color) !important;
 }
 
@@ -671,6 +672,10 @@ nav:last-child {
 
 .chef-card:hover p {
     color: var(--secondary-text-color) !important;
+}
+
+.chef-card:hover .chef-card-name {
+    color: var(--primary-text-color) !important;
 }
 
 .chef-card-socials-container {
