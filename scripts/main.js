@@ -1,3 +1,11 @@
+import {
+    dateTimeValid,
+    emailValid,
+    nameValid,
+    showErrorAlert,
+    showSuccessAlert,
+} from "./utils.js";
+
 const menuData = [
     {
         id: 1,
@@ -171,11 +179,78 @@ function registerTabListeners() {
         });
 }
 
+function registerBookReservationHandler() {
+    const formId = "book_reservation_form";
+    const form = document.getElementById(formId);
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const dateTime = document.getElementById("date_time");
+        const peoplePicker = document.getElementById("people_picker");
+        const specialRequest = document.getElementById("special_request");
+
+        const nameValue = name?.value?.trim() ?? "";
+        const emailValue = email?.value?.trim() ?? "";
+        const dateTimeValue = dateTime?.value?.trim() ?? "";
+        const noOfPeople = peoplePicker?.value?.trim() ?? "";
+        const specialRequestValue = specialRequest?.value?.trim() ?? "";
+
+        if (nameValue === "") {
+            showErrorAlert("Name cannot be empty");
+            return;
+        }
+        if (nameValid(nameValue) === false) {
+            showErrorAlert(
+                "Name should only contain aplphabets, spaces or hyphens"
+            );
+            return;
+        }
+
+        if (emailValue === "") {
+            showErrorAlert("Email cannot be empty");
+            return;
+        }
+        if (emailValid(emailValue) === false) {
+            showErrorAlert("Enter valid email address");
+            return;
+        }
+
+        if (dateTimeValue === "") {
+            showErrorAlert("Date and time cannot be empty");
+            return;
+        }
+        if (dateTimeValid(dateTimeValue) === false) {
+            showErrorAlert(
+                "Date and time should be in the format: DD/MM/YYYY HH:MM"
+            );
+            return;
+        }
+
+        const [datePart] = dateTimeValue?.split(" ");
+        if (isNaN(Date.parse(datePart))) {
+            showErrorAlert("Invalid date selected");
+            return;
+        }
+
+        showSuccessAlert("Congratulations your reservation has been booked!");
+
+        name && (name.value = "");
+        email && (email.value = "");
+        dateTime && (dateTime.value = "");
+        noOfPeople && (noOfPeople.selectedIndex = 0);
+        specialRequest && (specialRequest.value = "");
+    });
+}
+
 function main() {
     window.onload = function () {
         populateMenuItems();
         focusTab(0);
         registerTabListeners();
+        registerBookReservationHandler();
     };
 }
 
