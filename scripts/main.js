@@ -245,12 +245,20 @@ function registerBookReservationHandler() {
     });
 }
 
+function registerScrollToTop() {
+    const btn = document.getElementById("scroll_to_top");
+    btn.addEventListener("click", () => {
+        window.scroll({ top: 0, behavior: "smooth" });
+    });
+}
+
 function main() {
     window.onload = function () {
         populateMenuItems();
         focusTab(0);
         registerTabListeners();
         registerBookReservationHandler();
+        registerScrollToTop();
     };
 }
 

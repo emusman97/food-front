@@ -662,6 +662,7 @@ nav:last-child {
 .chef-card-name {
     margin-top: 1rem !important;
     font-size: 1.5em !important;
+    font-weight: 700 !important;
     color: var(--primary-text-color) !important;
 }
 
@@ -671,6 +672,10 @@ nav:last-child {
 
 .chef-card:hover p {
     color: var(--secondary-text-color) !important;
+}
+
+.chef-card:hover .chef-card-name {
+    color: var(--primary-text-color) !important;
 }
 
 .chef-card-socials-container {
@@ -712,4 +717,85 @@ nav:last-child {
     font-size: 1em;
     height: 10em;
     width: 10em;
+}
+
+#section-testimonials {
+    display: flex;
+    background: var(--secondary-bg-color);
+    padding: 2em 0 0em 0;
+}
+
+#section-testimonials>div {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-testimonials-cards-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: calc(75% / 3);
+}
+
+.testimonial-card .fas {
+    font-size: 4rem;
+}
+
+.customer-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.customer-info-container img {
+    height: 4em;
+    width: 4em;
+}
+
+.customer-info-container p {
+    margin: 0;
+}
+
+.cutomer-name {
+    color: var(--primary-text-color) !important;
+    font-weight: 700;
+}
+
+.testimonial-card:hover p {
+    color: white !important;
+}
+
+.scroll_to_top_btn_container {
+    display: flex;
+    align-self: flex-end;
+    margin-top: 8em;
+    margin-bottom: 8em;
+    margin-right: 2em;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.scroll_to_top_btn {
+    border: none;
+}
+
+.scroll_to_top_btn .fas {
+    color: white;
+    font-size: 1.5rem;
 }
