@@ -249,9 +249,70 @@
                     </div>
                 </div>
             </section>
+
+            <section
+                id="section_book_table"
+                class="section_reservation_container"
+            >
+                <img
+                    src="assets/section-reservation-image.png"
+                    alt="Reservation main image"
+                />
+                <div class="reservation_form_container">
+                    <form id="book_reservation_form" novalidate>
+                        <div class="reservation-form-title-text-container">
+                            <p>Reservation</p>
+                            <div class="separator-line"></div>
+                        </div>
+                        <h1>Book A Table Online</h1>
+
+                        <div class="reservation_form_inputs_container">
+                            <input
+                                id="name"
+                                placeholder="Your Name"
+                                type="text"
+                                maxlength="50"
+                                required
+                            />
+                            <input
+                                id="email"
+                                placeholder="Your Email"
+                                type="email"
+                                required
+                            />
+                            <input
+                                id="date_time"
+                                required
+                                placeholder="Date & Time"
+                                type="text"
+                            />
+
+                            <div class="people_picker_wrapper">
+                                <label for="people_picker">No of people</label>
+                                <select id="people_picker">
+                                    <option>People 1</option>
+                                    <option>People 2</option>
+                                    <option>People 3</option>
+                                    <option>People 4</option>
+                                </select>
+                            </div>
+
+                            <textarea
+                                id="special_request"
+                                placeholder="Special request"
+                            ></textarea>
+                        </div>
+
+                        <button class="primary_btn" type="submit">
+                            BOOK NOW
+                        </button>
+                    </form>
+                </div>
+            </section>
         </main>
         <footer></footer>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="module" src="scripts/main.js"></script>
     </body>
 </html>
