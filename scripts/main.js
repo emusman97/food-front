@@ -166,7 +166,7 @@ function focusTab(index = 0) {
 function registerTabListeners() {
     document
         .querySelector(".menu-selection-tabs-container")
-        .addEventListener("click", function (event) {
+        ?.addEventListener("click", function (event) {
             const clickedItem = event.target?.closest?.(".menu-tab-container");
 
             if (clickedItem) {
@@ -183,7 +183,7 @@ function registerBookReservationHandler() {
     const formId = "book_reservation_form";
     const form = document.getElementById(formId);
 
-    form.addEventListener("submit", function (event) {
+    form?.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const name = document.getElementById("name");
@@ -247,7 +247,7 @@ function registerBookReservationHandler() {
 
 function registerScrollToTop() {
     const btn = document.getElementById("scroll_to_top");
-    btn.addEventListener("click", () => {
+    btn?.addEventListener("click", () => {
         window.scroll({ top: 0, behavior: "smooth" });
     });
 }
@@ -259,9 +259,6 @@ function registerMenuToggle() {
 
     const menuToggleElm = document.querySelector(`.${menuToggleClass}`);
     const navContainerElm = document.querySelector(`.${navContainerClass}`);
-    const navLinksElms = document.querySelectorAll(
-        `.${navContainerClass} nav a`
-    );
 
     menuToggleElm.addEventListener("click", (event) => {
         event.stopPropagation();
