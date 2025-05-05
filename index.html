@@ -28,60 +28,66 @@
         <title>Food Front</title>
     </head>
     <body>
-        <main>
-            <section id="section_title">
-                <header>
-                    <div class="header_content_container">
-                        <div class="nav_header">
-                            <a href="/">
-                                <img
-                                    class="nav_header_logo"
-                                    src="assets/logo.png"
-                                />
+        <header>
+            <div class="header_content_container">
+                <div class="nav_header">
+                    <a href="/">
+                        <img class="nav_header_logo" src="assets/logo.png" />
+                    </a>
+                    <nav>
+                        <div class="nav-links">
+                            <a id="home-link" href="/">Home</a>
+                            <a href="/pages/contact/contact.html">Contact</a>
+                            <a class="primary_btn" href="#section_book_table"
+                                >Book A Table
                             </a>
-                            <nav>
-                                <a id="home-link" href="/">Home</a>
-                                <a href="/pages/contact/contact.html"
-                                    >Contact</a
-                                >
-                                <a
-                                    class="primary_btn"
-                                    href="#section_book_table"
-                                    >Book A Table</a
-                                >
-                            </nav>
                         </div>
-
-                        <div class="section_title_content_wrapper">
-                            <div class="section_title_content_container">
-                                <div class="section_title_title_text_container">
-                                    <h1 class="section_title_title_text">
-                                        Enjoy Our Delicious Meal
-                                    </h1>
-                                    <p>
-                                        Tempor erat elitr rebum at clita. Diam
-                                        dolor diam ipsum sit. Aliqu diam amet
-                                        diam et eos. Clita erat ipsum et lorem
-                                        et sit, sed stet lorem sit clita duo
-                                        justo magna dolore erat amet
-                                    </p>
-                                    <a
-                                        class="primary_btn"
-                                        href="#section_book_table"
-                                        >Book A Table</a
-                                    >
-                                </div>
-                                <div class="title_image_container">
-                                    <img
-                                        class="title_image rotating-image"
-                                        src="assets/title-image.png"
-                                        alt="Title image"
-                                    />
-                                </div>
+                        <div class="menu-toggle">
+                            <div>
+                                <i class="fas fa-bars"></i>
                             </div>
                         </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="nav_container">
+                <nav>
+                    <a id="home-link" href="/">Home</a>
+                    <a href="/pages/contact/contact.html">Contact</a>
+                    <a class="primary_btn" href="#section_book_table"
+                        >Book A Table
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section id="section_title">
+                <div class="section_title_container">
+                    <div class="section_title_content_container">
+                        <div class="section_title_title_text_container">
+                            <h1 class="section_title_title_text">
+                                Enjoy Our Delicious Meal
+                            </h1>
+                            <p>
+                                Tempor erat elitr rebum at clita. Diam dolor
+                                diam ipsum sit. Aliqu diam amet diam et eos.
+                                Clita erat ipsum et lorem et sit, sed stet lorem
+                                sit clita duo justo magna dolore erat amet
+                            </p>
+                            <a class="primary_btn" href="#section_book_table"
+                                >Book A Table</a
+                            >
+                        </div>
+                        <div class="title_image_container">
+                            <img
+                                class="title_image rotating-image"
+                                src="assets/title-image.png"
+                                alt="Title image"
+                            />
+                        </div>
                     </div>
-                </header>
+                </div>
 
                 <div class="section_container">
                     <div class="section_content_container">
@@ -246,9 +252,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-items-container">
-                        <!-- Will be populated with js -->
-                    </div>
+                    <div class="menu-items-container"></div>
                 </div>
             </section>
 

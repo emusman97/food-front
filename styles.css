@@ -22,11 +22,9 @@ body {
 }
 
 header {
-    margin: 0;
-    padding-top: 1em;
-    padding-bottom: 5em;
-    background: url("assets/bg.png");
-    background-size: contain;
+    position: absolute;
+    top: 1rem;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,8 +64,83 @@ u {
     width: 15rem;
 }
 
+.menu-toggle {
+    display: none;
+    border: 0.1rem solid var(--border-color);
+    padding: 0.2rem 1rem;
+}
+
+.menu-toggle>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle .fas {
+    font-size: 1.5rem;
+    color: var(--border-color);
+}
+
+.nav_container {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    .nav_header .nav-links {
+        display: none;
+    }
+
+    .nav_header_logo {
+        width: 10rem;
+    }
+
+    header {
+        top: 0;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        background: var(--section-reservation-bg-color);
+        padding: 1rem 0;
+    }
+
+    .header_content_container {
+        width: 95%;
+        margin: 0rem 0rem;
+    }
+
+    .nav_container-active {
+        display: block;
+        width: 95%;
+    }
+
+    .nav_container nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav>a {
+        margin-bottom: 1rem;
+    }
+
+    menu-toggle:hover {
+        cursor: pointer;
+    }
+}
+
 header p {
     color: #FFFFFF;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 nav a {
@@ -115,9 +188,21 @@ nav:last-child {
     color: #FFFFFF;
 }
 
+.section_title_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(assets/bg.png);
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    color: white;
+}
+
 .section_title_content_container {
     display: flex;
-    width: 100%;
+    width: 80%;
     align-self: center;
     align-items: center;
     justify-content: center;

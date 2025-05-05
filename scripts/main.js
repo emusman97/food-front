@@ -252,6 +252,27 @@ function registerScrollToTop() {
     });
 }
 
+function registerMenuToggle() {
+    const menuToggleClass = "menu-toggle";
+    const navContainerClass = "nav_container";
+    const navContainerActiveClass = "nav_container-active";
+
+    const menuToggleElm = document.querySelector(`.${menuToggleClass}`);
+    const navContainerElm = document.querySelector(`.${navContainerClass}`);
+    const navLinksElms = document.querySelectorAll(
+        `.${navContainerClass} nav a`
+    );
+
+    menuToggleElm.addEventListener("click", (event) => {
+        event.stopPropagation();
+        navContainerElm.classList.toggle(navContainerActiveClass);
+    });
+
+    document.addEventListener("click", () => {
+        navContainerElm.classList.remove(navContainerActiveClass);
+    });
+}
+
 function main() {
     window.onload = function () {
         populateMenuItems();
@@ -259,6 +280,7 @@ function main() {
         registerTabListeners();
         registerBookReservationHandler();
         registerScrollToTop();
+        registerMenuToggle();
     };
 }
 
