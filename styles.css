@@ -965,12 +965,12 @@ nav:last-child {
 }
 
 .section-testimonials-cards-container {
-    margin-top: 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem
+    gap: 2.5rem;
+    margin: 2rem 2rem;
 }
 
 .testimonial-card {
@@ -978,7 +978,6 @@ nav:last-child {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: calc(75% / 3);
 }
 
 .testimonial-card .fas {
@@ -1029,6 +1028,21 @@ nav:last-child {
 .scroll_to_top_btn .fas {
     color: white;
     font-size: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    #section-testimonials h1 {
+        text-align: center;
+    }
+
+    .section-testimonials-cards-container {
+        flex-direction: column;
+    }
+
+    .scroll_to_top_btn_container {
+        margin: 0;
+        margin-right: 2rem;
+    }
 }
 
 footer {
