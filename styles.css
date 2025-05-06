@@ -940,6 +940,16 @@ nav:last-child {
     width: 10em;
 }
 
+@media (max-width: 992px) {
+    #section-chefs h1 {
+        text-align: center;
+    }
+
+    .chefs-cards-container {
+        flex-direction: column;
+    }
+}
+
 #section-testimonials {
     display: flex;
     background: var(--secondary-bg-color);
