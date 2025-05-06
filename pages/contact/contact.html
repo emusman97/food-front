@@ -40,18 +40,15 @@
         <title>Contact</title>
     </head>
     <body>
-        <main>
-            <section id="section-title">
-                <div class="content-container title-content-container">
-                    <header>
-                        <a href="/">
-                            <img
-                                class="nav_header_logo"
-                                src="/assets/logo.png"
-                            />
-                        </a>
+        <header>
+            <div class="header_content_container">
+                <div class="nav_header">
+                    <a href="/">
+                        <img class="nav_header_logo" src="/assets/logo.png" />
+                    </a>
 
-                        <nav>
+                    <nav>
+                        <div class="nav-links">
                             <a id="home-link" href="/">Home</a>
                             <a href="/pages/contact/contact.html">Contact</a>
                             <a
@@ -59,9 +56,29 @@
                                 href="/index.html#section_book_table"
                                 >Book A Table</a
                             >
-                        </nav>
-                    </header>
+                        </div>
+                        <div class="menu-toggle">
+                            <div>
+                                <i class="fas fa-bars"></i>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="nav_container">
+                <nav>
+                    <a id="home-link" href="/">Home</a>
+                    <a href="/pages/contact/contact.html">Contact</a>
+                    <a class="primary_btn" href="/index.html#section_book_table"
+                        >Book A Table
+                    </a>
+                </nav>
+            </div>
+        </header>
 
+        <main>
+            <section id="section-title">
+                <div class="content-container title-content-container">
                     <div class="contact-us-title-container">
                         <h1>Contact Us</h1>
                         <p>
@@ -121,7 +138,7 @@
                     </div>
 
                     <div class="map-form-container">
-                        <div class="contact-from-img-container"></div>
+                        <div class="contact-form-img-container"></div>
                         <div class="contact-form-container">
                             <form id="contact-us-form" novalidate>
                                 <input
