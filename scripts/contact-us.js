@@ -4,7 +4,7 @@ function registerContactUsSubmission() {
     const formId = "contact-us-form";
     const formElm = document.getElementById(formId);
 
-    formElm.addEventListener("submit", function (event) {
+    formElm?.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const nameElm = document.getElementById("name");
@@ -48,10 +48,28 @@ function registerContactUsSubmission() {
     });
 }
 
+function registerMenuToggle() {
+    const menuToggleClass = "menu-toggle";
+    const navContainerClass = "nav_container";
+    const navContainerActiveClass = "nav_container-active";
+
+    const menuToggleElm = document.querySelector(`.${menuToggleClass}`);
+    const navContainerElm = document.querySelector(`.${navContainerClass}`);
+
+    menuToggleElm?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        navContainerElm.classList.toggle(navContainerActiveClass);
+    });
+
+    document?.addEventListener("click", () => {
+        navContainerElm.classList.remove(navContainerActiveClass);
+    });
+}
+
 function registerScrollToTopButton() {
     const scrollToTopBtnElm = document.getElementById("scroll_to_top");
 
-    scrollToTopBtnElm.addEventListener("click", function () {
+    scrollToTopBtnElm?.addEventListener("click", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
@@ -59,6 +77,7 @@ function registerScrollToTopButton() {
 function main() {
     window.onload = function () {
         registerContactUsSubmission();
+        registerMenuToggle();
         registerScrollToTopButton();
     };
 }
