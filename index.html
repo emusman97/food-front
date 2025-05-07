@@ -271,40 +271,57 @@
                         <h1>Book A Table Online</h1>
 
                         <div class="reservation_form_inputs_container">
-                            <input
-                                id="name"
-                                placeholder="Your Name"
-                                type="text"
-                                maxlength="50"
-                                required
-                            />
-                            <input
-                                id="email"
-                                placeholder="Your Email"
-                                type="email"
-                                required
-                            />
-                            <input
-                                id="date_time"
-                                required
-                                placeholder="Date & Time"
-                                type="text"
-                            />
-
-                            <div class="people_picker_wrapper">
-                                <label for="people_picker">No of people</label>
-                                <select id="people_picker">
-                                    <option>People 1</option>
-                                    <option>People 2</option>
-                                    <option>People 3</option>
-                                    <option>People 4</option>
-                                </select>
+                            <div>
+                                <input
+                                    id="name"
+                                    placeholder="Your Name"
+                                    type="text"
+                                    maxlength="50"
+                                    required
+                                />
+                                <p>Error</p>
+                            </div>
+                            <div>
+                                <input
+                                    id="email"
+                                    placeholder="Your Email"
+                                    type="email"
+                                    required
+                                />
+                                <p>Error</p>
+                            </div>
+                            <div>
+                                <input
+                                    id="date_time"
+                                    required
+                                    placeholder="Date & Time"
+                                    type="text"
+                                />
+                                <p>Error</p>
                             </div>
 
-                            <textarea
-                                id="special_request"
-                                placeholder="Special request"
-                            ></textarea>
+                            <div>
+                                <div class="people_picker_wrapper">
+                                    <label for="people_picker"
+                                        >No of people</label
+                                    >
+                                    <select id="people_picker">
+                                        <option>People 1</option>
+                                        <option>People 2</option>
+                                        <option>People 3</option>
+                                        <option>People 4</option>
+                                    </select>
+                                </div>
+                                <p>Error</p>
+                            </div>
+
+                            <div>
+                                <textarea
+                                    id="special_request"
+                                    placeholder="Special request"
+                                ></textarea>
+                                <p>Error</p>
+                            </div>
                         </div>
 
                         <button class="primary_btn" type="submit">

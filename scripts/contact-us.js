@@ -1,4 +1,29 @@
-import { emailValid, showErrorAlert, showSuccessAlert } from "./utils.js";
+import { emailValid, showSuccessAlert } from "./utils.js";
+
+const nameInputId = "name";
+const emailInputId = "email";
+const subjectInputId = "subject";
+const messageInputId = "message";
+
+const selectErrorTextQuery = (inputId = "") => `#${inputId} ~ p`;
+
+function showErrorMessage(errorMessage = "", inputId = "") {
+    const errorTextElm = document.querySelector(selectErrorTextQuery(inputId));
+
+    if (errorTextElm) {
+        errorTextElm.innerText = errorMessage;
+        errorTextElm.style.visibility = "visible";
+    }
+}
+
+function clearErrorMessage(inputId = "") {
+    const errorTextElm = document.querySelector(selectErrorTextQuery(inputId));
+
+    if (errorTextElm) {
+        errorTextElm.innerText = "Error";
+        errorTextElm.style.visibility = "hidden";
+    }
+}
 
 function registerContactUsSubmission() {
     const formId = "contact-us-form";
@@ -7,10 +32,10 @@ function registerContactUsSubmission() {
     formElm?.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const nameElm = document.getElementById("name");
-        const emailElm = document.getElementById("email");
-        const subElm = document.getElementById("subject");
-        const messageElm = document.getElementById("message");
+        const nameElm = document.getElementById(nameInputId);
+        const emailElm = document.getElementById(emailInputId);
+        const subElm = document.getElementById(subjectInputId);
+        const messageElm = document.getElementById(messageInputId);
 
         const name = nameElm?.value?.trim();
         const email = emailElm?.value?.trim();
@@ -18,24 +43,32 @@ function registerContactUsSubmission() {
         const message = messageElm?.value?.trim();
 
         let valid = true;
+        let inputId = "";
+        let errorMessage = "";
         if (name === "") {
-            showErrorAlert("Name cannot be empty");
             valid = false;
+            errorMessage = "Name cannot be empty";
+            inputId = nameInputId;
         } else if (email === "") {
-            showErrorAlert("Email cannot be empty");
             valid = false;
+            errorMessage = "Email cannot be empty";
+            inputId = emailInputId;
         } else if (emailValid(email) === false) {
-            showErrorAlert("Enter valid email");
             valid = false;
+            errorMessage = "Enter valid email";
+            inputId = emailInputId;
         } else if (subject === "") {
-            showErrorAlert("Subject cannot be empty");
             valid = false;
+            errorMessage = "Subject cannot be empty";
+            inputId = subjectInputId;
         } else if (message === "") {
-            showErrorAlert("Message cannot be empty");
             valid = false;
+            errorMessage = "Message cannot be empty";
+            inputId = messageInputId;
         }
 
         if (valid === false) {
+            showErrorMessage(errorMessage, inputId);
             return;
         }
 
@@ -45,6 +78,19 @@ function registerContactUsSubmission() {
         messageElm && (messageElm.value = "");
 
         showSuccessAlert("We will contact you very soon!");
+    });
+}
+
+function registerTextChangeListeners() {
+    const fields = document.querySelectorAll(
+        "#contact-us-form input, #contact-us-form textarea"
+    );
+
+    fields?.forEach((field) => {
+        field.addEventListener("input", () => {
+            const inputId = field.id;
+            inputId && clearErrorMessage(inputId);
+        });
     });
 }
 
@@ -78,6 +124,7 @@ function main() {
     window.onload = function () {
         registerContactUsSubmission();
         registerMenuToggle();
+        registerTextChangeListeners();
         registerScrollToTopButton();
     };
 }
