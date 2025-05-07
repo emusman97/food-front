@@ -340,6 +340,7 @@ header {
     color: var(--error-text-color);
     font-size: 0.8rem;
     align-self: flex-start;
+    margin-bottom: 0.2rem;
 }
 
 #contact-us-form input {
