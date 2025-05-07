@@ -983,6 +983,10 @@ nav:last-child {
     padding: 2em 0 0em 0;
 }
 
+#section-testimonials h1 {
+    text-align: center;
+}
+
 #section-testimonials>div {
     margin: auto;
     display: flex;
@@ -996,11 +1000,14 @@ nav:last-child {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 2.5rem;
     margin: 2rem 2rem;
+    padding: 0 5%;
 }
 
 .testimonial-card {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1058,14 +1065,6 @@ nav:last-child {
 }
 
 @media (max-width: 992px) {
-    #section-testimonials h1 {
-        text-align: center;
-    }
-
-    .section-testimonials-cards-container {
-        flex-direction: column;
-    }
-
     .scroll_to_top_btn_container {
         margin: 0;
         margin-right: 2rem;
