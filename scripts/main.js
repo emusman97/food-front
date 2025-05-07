@@ -2,7 +2,6 @@ import {
     dateTimeValid,
     emailValid,
     nameValid,
-    showErrorAlert,
     showSuccessAlert,
 } from "./utils.js";
 
@@ -93,6 +92,30 @@ const tabIdIndexMap = {
     2: 1,
     3: 2,
 };
+
+const nameInputId = "name";
+const emailInputId = "email";
+const dateTimeInputId = "date_time";
+
+const selectErrorTextQuery = (inputId = "") => `#${inputId} ~ p`;
+
+function showErrorMessage(errorMessage = "", inputId = "") {
+    const errorTextElm = document.querySelector(selectErrorTextQuery(inputId));
+
+    if (errorTextElm) {
+        errorTextElm.innerText = errorMessage;
+        errorTextElm.style.visibility = "visible";
+    }
+}
+
+function clearErrorMessage(inputId = "") {
+    const errorTextElm = document.querySelector(selectErrorTextQuery(inputId));
+
+    if (errorTextElm) {
+        errorTextElm.innerText = "Error";
+        errorTextElm.style.visibility = "hidden";
+    }
+}
 
 function shuffleData() {
     const shuffled = [...menuData];
@@ -198,40 +221,47 @@ function registerBookReservationHandler() {
         const noOfPeople = peoplePicker?.value?.trim() ?? "";
         const specialRequestValue = specialRequest?.value?.trim() ?? "";
 
+        let valid = true;
+        let errorMessage = "";
+        let inputId = "";
         if (nameValue === "") {
-            showErrorAlert("Name cannot be empty");
-            return;
-        }
-        if (nameValid(nameValue) === false) {
-            showErrorAlert(
-                "Name should only contain aplphabets, spaces or hyphens"
-            );
-            return;
+            valid = false;
+            errorMessage = "Name cannot be empty";
+            inputId = nameInputId;
+        } else if (nameValid(nameValue) === false) {
+            valid = false;
+            errorMessage =
+                "Name should only contain aplphabets, spaces or hyphens";
+            inputId = nameInputId;
+        } else if (emailValue === "") {
+            valid = false;
+            errorMessage = "Email cannot be empty";
+            inputId = emailInputId;
+        } else if (emailValid(emailValue) === false) {
+            valid = false;
+            errorMessage = "Enter valid email address";
+            inputId = emailInputId;
+        } else if (dateTimeValue === "") {
+            valid = false;
+            errorMessage = "Date and time cannot be empty";
+            inputId = dateTimeInputId;
+        } else if (dateTimeValid(dateTimeValue) === false) {
+            valid = false;
+            errorMessage = "Required format: DD/MM/YYYY HH:MM";
+            inputId = dateTimeInputId;
+        } else {
+            const [datePart] = dateTimeValue?.split(" ");
+            const [day, month, year] = datePart.split("/");
+            const formattedDate = `${year}-${month}-${day}`;
+            if (isNaN(Date.parse(formattedDate))) {
+                valid = false;
+                errorMessage = "Invalid date selected";
+                inputId = dateTimeInputId;
+            }
         }
 
-        if (emailValue === "") {
-            showErrorAlert("Email cannot be empty");
-            return;
-        }
-        if (emailValid(emailValue) === false) {
-            showErrorAlert("Enter valid email address");
-            return;
-        }
-
-        if (dateTimeValue === "") {
-            showErrorAlert("Date and time cannot be empty");
-            return;
-        }
-        if (dateTimeValid(dateTimeValue) === false) {
-            showErrorAlert(
-                "Date and time should be in the format: DD/MM/YYYY HH:MM"
-            );
-            return;
-        }
-
-        const [datePart] = dateTimeValue?.split(" ");
-        if (isNaN(Date.parse(datePart))) {
-            showErrorAlert("Invalid date selected");
+        if (valid === false) {
+            showErrorMessage(errorMessage, inputId);
             return;
         }
 
@@ -240,8 +270,21 @@ function registerBookReservationHandler() {
         name && (name.value = "");
         email && (email.value = "");
         dateTime && (dateTime.value = "");
-        noOfPeople && (noOfPeople.selectedIndex = 0);
+        peoplePicker && (peoplePicker.selectedIndex = 0);
         specialRequest && (specialRequest.value = "");
+    });
+}
+
+function registerTextChangeListeners() {
+    const fields = document.querySelectorAll(
+        "#book_reservation_form input, #book_reservation_form textarea"
+    );
+
+    fields?.forEach((field) => {
+        field.addEventListener("input", () => {
+            const inputId = field.id;
+            inputId && clearErrorMessage(inputId);
+        });
     });
 }
 
@@ -276,6 +319,7 @@ function main() {
         focusTab(0);
         registerTabListeners();
         registerBookReservationHandler();
+        registerTextChangeListeners();
         registerScrollToTop();
         registerMenuToggle();
     };
