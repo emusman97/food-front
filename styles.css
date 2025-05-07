@@ -252,13 +252,8 @@ nav:last-child {
 }
 
 .rotating-image {
-    transform: rotate(0deg);
-    transition: transform 0.5s ease-out;
-}
-
-.rotating-image:hover {
     animation: spin 5s linear infinite;
-    transition: none;
+    transform: rotate(0deg);
 }
 
 @keyframes spin {
