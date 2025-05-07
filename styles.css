@@ -933,19 +933,20 @@ nav:last-child {
 }
 
 .chef-card-socials-container {
-    display: none;
+    display: flex;
+    max-height: 0;
     margin-top: 1rem;
     flex-direction: row;
     align-items: center;
     align-content: center;
     gap: 0.5em;
-
     opacity: 0;
-    transition: opacity 0.2s ease;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
 .card:hover .chef-card-socials-container {
-    display: flex;
+    max-height: 10rem;
     opacity: 1;
 }
 
@@ -954,10 +955,11 @@ nav:last-child {
     align-items: center;
     justify-content: center;
     background: var(--color-primary);
-    height: 2em;
-    width: 2em;
-    border-top-left-radius: calc(2em / 2);
-    border-top-right-radius: calc(2em / 2);
+    height: 3rem;
+    width: 2rem;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+    padding-bottom: 0.5rem;
     margin-bottom: -1em;
 }
 
